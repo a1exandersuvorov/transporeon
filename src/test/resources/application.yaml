@@ -1,0 +1,10 @@
+spring:
+  batch:
+    job:
+      enabled: false
+
+file:
+  name: ${FILE_NAME:team_cotton_task_test}
+
+job:
+  default: ${DEFAULT_JOB:fileBatchJob}

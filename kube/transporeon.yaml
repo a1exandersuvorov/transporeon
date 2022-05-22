@@ -1,0 +1,34 @@
+# ... Deployment YAML definition
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transporeon
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: transporeon
+  template:
+    metadata:
+      labels:
+        app: transporeon
+    spec:
+      containers:
+        - name: app
+          image: a1exandersuvorov/transporeon-java:1.0.0
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: Always
+
+# ... Service YAML definition
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: transporeon
+#spec:
+#  selector:
+#    app: transporeon
+#  ports:
+#    - port: 80
+#      targetPort: 8080
+#  type: LoadBalancer
